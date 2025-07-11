@@ -1,0 +1,88 @@
+{
+	"BUILD_DIR" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/mnist_quick_test_autogen",
+	"CMAKE_BINARY_DIR" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/isaac/src/git/nermal/tests/functional",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_LIST_FILES" : [ "/home/isaac/src/git/nermal/tests/functional/CMakeLists.txt" ],
+	"CMAKE_SOURCE_DIR" : "/home/isaac/src/git/nermal",
+	"DEP_FILE" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/mnist_quick_test_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "mnist_quick_test_autogen/timestamp",
+	"HEADERS" : 
+	[
+		[
+			"/home/isaac/src/git/nermal/src/neuralnetwork.h",
+			"MU",
+			"VNU7RW3YIC/moc_neuralnetwork.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/mnist_quick_test_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/mnist_quick_test_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QUICK_TEST=1" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/home/isaac/src/git/nermal/src",
+		"/usr/include/eigen3",
+		"/usr/include/c++/11",
+		"/usr/include/c++/11/x86_64-suse-linux",
+		"/usr/include/c++/11/backward",
+		"/usr/lib64/gcc/x86_64-suse-linux/11/include",
+		"/usr/local/include",
+		"/usr/lib64/gcc/x86_64-suse-linux/11/include-fixed",
+		"/usr/x86_64-suse-linux/include",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : 
+	[
+		"Q_OBJECT",
+		"Q_GADGET",
+		"Q_NAMESPACE",
+		"Q_NAMESPACE_EXPORT",
+		"Q_GADGET_EXPORT"
+	],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/g++-11",
+		"-std=gnu++17",
+		"-dM",
+		"-E",
+		"-c",
+		"/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/mnist_quick_test_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/CMakeFiles/mnist_quick_test_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt6/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt6/uic",
+	"QT_VERSION_MAJOR" : 6,
+	"QT_VERSION_MINOR" : 6,
+	"SETTINGS_FILE" : "/home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/tests/functional/CMakeFiles/mnist_quick_test_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[ "/home/isaac/src/git/nermal/src/neuralnetwork.cpp", "MU", null ],
+		[
+			"/home/isaac/src/git/nermal/tests/functional/mnist_test.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

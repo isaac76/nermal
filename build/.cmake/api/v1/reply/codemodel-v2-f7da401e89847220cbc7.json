@@ -1,0 +1,225 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-39cf6ab85b48af8b99b3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "tests",
+					"childIndexes" : 
+					[
+						3,
+						4
+					],
+					"jsonFile" : "directory-tests-Debug-b01f6abb0ab61427ef3b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "tests"
+				},
+				{
+					"build" : "tests/unit",
+					"jsonFile" : "directory-tests.unit-Debug-4ac8c025c276fb39190f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "tests/unit",
+					"targetIndexes" : 
+					[
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"build" : "tests/functional",
+					"jsonFile" : "directory-tests.functional-Debug-cfb1e8fe14735f8dea9a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "tests/functional",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "Nermal",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Nermal::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Nermal-Debug-f4912a4a380856b7b705.json",
+					"name" : "Nermal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Nermal_autogen::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Nermal_autogen-Debug-c2f45f85613a4baf10d2.json",
+					"name" : "Nermal_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Nermal_autogen_timestamp_deps::@145eef247bfb46b6828c",
+					"jsonFile" : "target-Nermal_autogen_timestamp_deps-Debug-ebe4b96a21ac49b3b889.json",
+					"name" : "Nermal_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_quick_test::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_quick_test-Debug-225260cb81c525737e5d.json",
+					"name" : "mnist_quick_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_quick_test_autogen::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_quick_test_autogen-Debug-3085b5bca8eb0219bb6b.json",
+					"name" : "mnist_quick_test_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_quick_test_autogen_timestamp_deps::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_quick_test_autogen_timestamp_deps-Debug-084d7ec214d95d40ef19.json",
+					"name" : "mnist_quick_test_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_test::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_test-Debug-a7c5866a77bb7d182afe.json",
+					"name" : "mnist_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_test_autogen::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_test_autogen-Debug-d868fce5f687a610a21a.json",
+					"name" : "mnist_test_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "mnist_test_autogen_timestamp_deps::@9eb86d367942307babda",
+					"jsonFile" : "target-mnist_test_autogen_timestamp_deps-Debug-637c181a7776570e1d4e.json",
+					"name" : "mnist_test_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "test_neuralnetwork::@17bd492d087794b9594e",
+					"jsonFile" : "target-test_neuralnetwork-Debug-2eea5c380c584cf30d09.json",
+					"name" : "test_neuralnetwork",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "test_neuralnetwork_autogen::@17bd492d087794b9594e",
+					"jsonFile" : "target-test_neuralnetwork_autogen-Debug-97f222cb385675b106bb.json",
+					"name" : "test_neuralnetwork_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "test_neuralnetwork_autogen_timestamp_deps::@17bd492d087794b9594e",
+					"jsonFile" : "target-test_neuralnetwork_autogen_timestamp_deps-Debug-4f2f9ff0b1c50209ca19.json",
+					"name" : "test_neuralnetwork_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/isaac/src/git/nermal/build",
+		"source" : "/home/isaac/src/git/nermal"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
