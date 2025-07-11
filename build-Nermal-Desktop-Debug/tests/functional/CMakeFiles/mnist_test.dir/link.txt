@@ -1,1 +1,0 @@
-/usr/bin/g++-11 -g CMakeFiles/mnist_test.dir/mnist_test_autogen/mocs_compilation.cpp.o CMakeFiles/mnist_test.dir/mnist_test.cpp.o CMakeFiles/mnist_test.dir/__/__/src/neuralnetwork.cpp.o -o mnist_test 

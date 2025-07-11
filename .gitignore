@@ -72,3 +72,16 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
+# MNIST Dataset Files
+# -------------------
+*.csv
+mnist_train.csv
+mnist_test.csv
+training/*.csv
+
+# Build directories
+# -----------------
+build/
+build-*/
+*-build-*/
+

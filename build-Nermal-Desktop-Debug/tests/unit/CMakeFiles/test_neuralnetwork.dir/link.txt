@@ -1,1 +1,0 @@
-/usr/bin/g++-11 -g CMakeFiles/test_neuralnetwork.dir/test_neuralnetwork_autogen/mocs_compilation.cpp.o CMakeFiles/test_neuralnetwork.dir/test_neuralnetwork.cpp.o CMakeFiles/test_neuralnetwork.dir/__/__/src/neuralnetwork.cpp.o -o test_neuralnetwork  /usr/lib64/libQt6Test.so.6.6.3 /usr/lib64/libQt6Core.so.6.6.3 

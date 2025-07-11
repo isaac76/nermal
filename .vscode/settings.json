@@ -67,7 +67,8 @@
         "format": "cpp",
         "stdfloat": "cpp",
         "filesystem": "cpp",
-        "*.ui": "xml"
+        "*.ui": "xml",
+        "dense": "cpp"
     },
     "cmake.buildDirectory": "${workspaceFolder}/build",
     "cmake.configureOnOpen": true,

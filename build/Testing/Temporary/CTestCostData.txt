@@ -1,4 +1,0 @@
-test_neuralnetwork 1 0.0280218
-mnist_functional_test 1 7.22872
-mnist_quick_test 1 0.314306
----

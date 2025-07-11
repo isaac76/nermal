@@ -1,6 +1,0 @@
-mnist_quick_test_autogen/timestamp: \
-	/home/isaac/src/git/nermal/src/neuralnetwork.cpp \
-	/home/isaac/src/git/nermal/src/neuralnetwork.h \
-	/home/isaac/src/git/nermal/tests/functional/CMakeLists.txt \
-	/home/isaac/src/git/nermal/tests/functional/mnist_test.cpp \
-	/usr/bin/cmake

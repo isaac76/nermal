@@ -1,78 +1,13 @@
 # Nermal Neural Network
 
-A C++ neural network implementation using Eigen3 and Qt6, designed for processing numerical data including MNIST digit recognition.
+I named my project Nermal because I like Garfield and it sounded a little like neural.
 
-## Features
+This project is my attempt to understand how neural networks work. I started with a book from Tariq Rashid. His Github repository can be found here (makeyourownneuralnetwork)[https://github.com/makeyourownneuralnetwork/makeyourownneuralnetwork]. And his book is Make Your Own Neural Network. I enjoyed it and would recommend.
 
-- **Neural Network**: Fully connected feedforward network with configurable architecture
-- **MNIST Support**: Built-in support for MNIST digit recognition with 90%+ accuracy
-- **Qt6 Integration**: Modern Qt6 Widgets GUI application
-- **Comprehensive Testing**: Unit tests with Qt Test framework and functional tests
-- **Professional Build System**: CMake with CTest integration
+I went through his examples and developed a neural network in Python. But then converted the project to C++ using Eigen. And then implemented a small UI to help demonstrate how the neural network is trained and how it makes predictions.
 
-## Requirements
+Training data comes from (mnist)[https://github.com/phoebetronic/mnist].
 
-- **Compiler**: GCC 11+ (required for Qt6 C++17 support)
-- **Qt6**: Widgets and Test components
-- **Eigen3**: Version 3.4.0+ for matrix operations
-- **CMake**: Version 3.5+
+I used copilot / Claude Sonnet to help convert from python and to help build the UI. 
 
-## Building
-
-### Option 1: VS Code (Recommended)
-The project is configured to work out-of-the-box with VS Code CMake Tools extension.
-
-### Option 2: Command Line
-```bash
-# Clone and navigate to project
-cd nermal
-
-# Configure with GCC 11 toolchain (important!)
-mkdir build && cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=../gcc11-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..
-
-# Build
-make
-
-# Run tests
-make test
-```
-
-### Option 3: Qt Creator
-Due to compiler requirements, Qt Creator needs special configuration:
-
-1. **Project Settings**: Projects → Build & Run → CMake
-2. **Initial Configuration**: Add or modify:
-   ```
-   -DCMAKE_TOOLCHAIN_FILE:FILEPATH=%{BuildConfig:Path:PrefixToSourceDir}/gcc11-toolchain.cmake
-   -DCMAKE_BUILD_TYPE:STRING=Debug
-   ```
-3. **Reconfigure** the project
-
-Alternative: Use the provided script:
-```bash
-./launch-qtcreator.sh
-```
-
-## Testing
-
-- **Unit Tests**: `./build/tests/unit/test_neuralnetwork`
-- **MNIST Functional Test**: `./build/tests/functional/mnist_test`
-- **Quick MNIST Test**: `./build/tests/functional/mnist_quick_test`
-- **All Tests**: `cd build && make test`
-
-## Architecture
-
-- **Input Layer**: 784 nodes (28×28 MNIST pixels)
-- **Hidden Layer**: 100 nodes
-- **Output Layer**: 10 nodes (digits 0-9)
-- **Activation**: Sigmoid function
-- **Learning**: Backpropagation with configurable learning rate
-
-## Files
-
-- `src/neuralnetwork.{h,cpp}`: Core neural network implementation
-- `src/main.cpp`, `src/mainwindow.*`: Qt GUI application
-- `tests/unit/`: Qt Test framework unit tests
-- `tests/functional/`: MNIST integration tests
-- `gcc11-toolchain.cmake`: Compiler configuration for Qt6 compatibility
+It was a fun little project.

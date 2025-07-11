@@ -1,6 +1,0 @@
-# CMake generated Testfile for 
-# Source directory: /home/isaac/src/git/nermal/src
-# Build directory: /home/isaac/src/git/nermal/build-Nermal-Desktop-Debug/src
-# 
-# This file includes the relevant testing commands required for 
-# testing this directory and lists subdirectories to be tested as well.
