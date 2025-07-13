@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     , imageItem(nullptr)
     , testImageScene(nullptr)
     , testImageItem(nullptr)
+    , drawingWidget(nullptr)
 {
     ui->setupUi(this);
     
@@ -46,6 +47,7 @@ MainWindow::~MainWindow()
     delete neuralNetwork;
     delete imageScene;
     delete testImageScene;
+    delete drawingWidget;
 }
 
 
@@ -108,6 +110,27 @@ void MainWindow::setupUI()
     // Set initial scene rect for test image
     testImageScene->setSceneRect(0, 0, 280, 280);
     
+    // Setup drawing widget (replace the QGraphicsView in the UI)
+    drawingWidget = new DrawingWidget(this);
+    
+    // Find the drawing area layout and replace the graphics view
+    QVBoxLayout* drawingLayout = ui->centralwidget->findChild<QVBoxLayout*>("drawingAreaLayout");
+    if (drawingLayout) {
+        // Remove the existing graphics view
+        QGraphicsView* oldDrawingView = ui->centralwidget->findChild<QGraphicsView*>("drawingView");
+        if (oldDrawingView) {
+            drawingLayout->removeWidget(oldDrawingView);
+            oldDrawingView->deleteLater();
+        }
+        
+        // Add our custom drawing widget
+        drawingLayout->addWidget(drawingWidget);
+        
+        // Connect the drawing completion signal to our slot
+        connect(drawingWidget, &DrawingWidget::drawingCompleted, 
+                this, &MainWindow::onDrawingCompleted);
+    }
+    
     // Set window title
     setWindowTitle("Nermal Neural Network - MNIST Digit Recognition");
 }
@@ -137,7 +160,8 @@ void MainWindow::loadMNISTData(const QString& filename, std::vector<std::vector<
     }
     
     int count = 0;
-    while (!in.atEnd() && count < 10000) { // Limit to 10k samples for initial training
+    while (!in.atEnd() && count < 10000) // Limit to 10k samples for initial training
+    {
         line = in.readLine();
         if (line.isEmpty()) continue;
         
@@ -353,7 +377,7 @@ void MainWindow::on_train_clicked()
         int firstLabel = -1;
         if (!targets.empty() && targets[0].size() == 10) {
             for (int i = 0; i < 10; ++i) {
-                if (targets[0][i] > 0.5) { // Find the highest value (should be 0.99)
+                if (targets[0][i] > 0.5) {
                     firstLabel = i;
                     break;
                 }
@@ -518,4 +542,41 @@ void MainWindow::on_query_clicked()
     }
     
     qDebug() << "Test sample" << randomIndex << "- Actual:" << actualLabel << "Predicted:" << prediction;
+}
+
+void MainWindow::onDrawingCompleted()
+{
+    // Check if neural network has been trained
+    if (!neuralNetwork) {
+        statusLabel->setText("Please train the neural network first!");
+        return;
+    }
+    
+    if (!drawingWidget) {
+        statusLabel->setText("Drawing widget not available");
+        return;
+    }
+    
+    // Get the drawn image as a normalized vector
+    std::vector<double> drawnImageVector = drawingWidget->getImageAsVector();
+    
+    // Get prediction from neural network
+    int prediction = predictDigit(drawnImageVector);
+    
+    // Display the prediction in the edit box
+    ui->predictionEdit->setText(QString::number(prediction));
+    
+    // Update status
+    statusLabel->setText(QString("Your drawing predicted as: %1").arg(prediction));
+    
+    qDebug() << "User drawing predicted as:" << prediction;
+}
+
+void MainWindow::on_clearDrawingButton_clicked()
+{
+    if (drawingWidget) {
+        drawingWidget->clearDrawing();
+        statusLabel->setText("Drawing cleared. Draw a digit to test the network.");
+        ui->predictionEdit->clear();
+    }
 }
