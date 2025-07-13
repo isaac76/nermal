@@ -124,6 +124,32 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "label": "Run Nermal GUI",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/src/Nermal",
+            "group": "test",
+            "detail": "Run the Nermal GUI application",
+            "dependsOn": "CMake: Build",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "DISPLAY": ":1",
+                    "QT_QPA_PLATFORM": "xcb",
+                    "XDG_CURRENT_DESKTOP": "KDE",
+                    "XDG_SESSION_TYPE": "wayland",
+                    "WAYLAND_DISPLAY": "wayland-0",
+                    "XDG_RUNTIME_DIR": "/run/user/1000"
+                }
+            },
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
         }
     ]
 }
