@@ -44,8 +44,12 @@ When the network sees its first handwritten "3":
    - Hidden nodes receive weighted sums of ALL pixels
    - Since weights are random, hidden nodes produce essentially random outputs
    - Output layer makes a random guess (maybe predicting "7" when it should predict "3")
-3. **Error Calculation**: Network compares its random guess to the correct answer
-4. **Backpropagation**: The learning algorithm adjusts weights based on the error:
+3. **Target Vector Creation**: The correct answer (e.g., digit "3") gets converted to a target vector:
+   - All 10 positions start at 0.01 (representing "not this digit")
+   - Position 3 gets set to 0.99 (representing "this is a 3")
+   - This one-hot encoding gives the network clear learning targets
+4. **Error Calculation**: Network compares its random guess to this target vector
+5. **Backpropagation**: The learning algorithm adjusts weights based on the error:
    - If a hidden node contributed to a wrong answer, its connections get weakened
    - If a hidden node could have helped the right answer, its connections get strengthened
 
