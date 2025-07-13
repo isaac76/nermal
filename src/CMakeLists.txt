@@ -6,6 +6,8 @@ set(PROJECT_SOURCES
     mainwindow.ui
     neuralnetwork.cpp
     neuralnetwork.h
+    drawingwidget.cpp
+    drawingwidget.h
 )
 
 # Create the main executable

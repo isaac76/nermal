@@ -1,5 +1,12 @@
 [
     {
+        "name": "GCC 11",
+        "compilers": {
+            "C": "/usr/bin/gcc-11",
+            "CXX": "/usr/bin/g++-11"
+        }
+    },
+    {
         "name": "GCC",
         "compilers": {
             "C": "/usr/bin/gcc",

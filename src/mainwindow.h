@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include "neuralnetwork.h"
+#include "drawingwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,8 @@ public:
 private slots:
     void on_train_clicked();
     void on_query_clicked();
+    void on_clearDrawingButton_clicked();  // Clear the drawing area
+    void onDrawingCompleted();  // Handle when user finishes drawing
 
 private:
     Ui::MainWindow *ui;
@@ -33,6 +36,7 @@ private:
     QGraphicsPixmapItem* imageItem;
     QGraphicsScene* testImageScene;
     QGraphicsPixmapItem* testImageItem;
+    DrawingWidget* drawingWidget;  // Custom drawing area
     
     // Helper methods
     void setupUI();
