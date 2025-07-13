@@ -73,8 +73,12 @@
     "cmake.buildDirectory": "${workspaceFolder}/build",
     "cmake.configureOnOpen": true,
     "cmake.configureArgs": [
-        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DCMAKE_BUILD_TYPE=Debug"
     ],
     "cmake.buildBeforeRun": true,
-    "cmake.clearOutputBeforeBuild": true
+    "cmake.clearOutputBeforeBuild": true,
+    "cmake.buildType": "Debug",
+    "cmake.preferredGenerators": ["Ninja", "Unix Makefiles"],
+    "cmake.generator": "Ninja"
 }
