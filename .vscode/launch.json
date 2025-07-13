@@ -2,6 +2,43 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run Nermal",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/Nermal",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "DISPLAY",
+                    "value": ":1"
+                },
+                {
+                    "name": "QT_QPA_PLATFORM",
+                    "value": "xcb"
+                },
+                {
+                    "name": "XDG_CURRENT_DESKTOP",
+                    "value": "KDE"
+                },
+                {
+                    "name": "XDG_SESSION_TYPE",
+                    "value": "wayland"
+                },
+                {
+                    "name": "WAYLAND_DISPLAY",
+                    "value": "wayland-0"
+                },
+                {
+                    "name": "XDG_RUNTIME_DIR",
+                    "value": "/run/user/1000"
+                }
+            ],
+            "externalConsole": false,
+            "preLaunchTask": "CMake: Build"
+        },
+        {
             "name": "Debug Nermal",
             "type": "cppdbg",
             "request": "launch",
@@ -9,7 +46,32 @@
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "environment": [
+                {
+                    "name": "DISPLAY",
+                    "value": ":1"
+                },
+                {
+                    "name": "QT_QPA_PLATFORM",
+                    "value": "xcb"
+                },
+                {
+                    "name": "XDG_CURRENT_DESKTOP",
+                    "value": "KDE"
+                },
+                {
+                    "name": "XDG_SESSION_TYPE",
+                    "value": "wayland"
+                },
+                {
+                    "name": "WAYLAND_DISPLAY",
+                    "value": "wayland-0"
+                },
+                {
+                    "name": "XDG_RUNTIME_DIR",
+                    "value": "/run/user/1000"
+                }
+            ],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [

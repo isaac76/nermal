@@ -137,15 +137,28 @@
        <item>
         <layout class="QVBoxLayout" name="trainingImageLayout">
          <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QLabel" name="trainingImageLabel">
+           <property name="styleSheet">
+            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
+           </property>
            <property name="text">
             <string>Training Images</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-           <property name="styleSheet">
-            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
            </property>
           </widget>
          </item>
@@ -177,15 +190,28 @@
        <item>
         <layout class="QVBoxLayout" name="testImageLayout">
          <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QLabel" name="testImageLabel">
+           <property name="styleSheet">
+            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
+           </property>
            <property name="text">
             <string>Test Image</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-           <property name="styleSheet">
-            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
            </property>
           </widget>
          </item>
@@ -217,15 +243,28 @@
        <item>
         <layout class="QVBoxLayout" name="drawingAreaLayout">
          <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QLabel" name="drawingAreaLabel">
+           <property name="styleSheet">
+            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
+           </property>
            <property name="text">
-            <string>Draw Your Digit</string>
+            <string>Try It</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
-           </property>
-           <property name="styleSheet">
-            <string>QLabel { font-weight: bold; font-size: 12px; color: #333; margin-bottom: 5px; }</string>
            </property>
           </widget>
          </item>
@@ -241,14 +280,14 @@
          </item>
          <item>
           <widget class="QPushButton" name="clearDrawingButton">
-           <property name="text">
-            <string>Clear Drawing</string>
-           </property>
            <property name="maximumSize">
             <size>
              <width>280</width>
              <height>30</height>
             </size>
+           </property>
+           <property name="text">
+            <string>Clear Drawing</string>
            </property>
           </widget>
          </item>
