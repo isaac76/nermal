@@ -89,6 +89,9 @@ void NeuralNetwork::train(const std::vector<double>& inputsList, const std::vect
     // FORWARD PASS: Hidden layer → Output layer  
     // Each output node receives weighted sum of ALL hidden nodes
     Eigen::MatrixXd finalInputs = weightsHiddenToOutput * hiddenOutputs;
+
+
+    // TODO: consider replacing with softmax unless out is binary
     Eigen::MatrixXd finalOutputs = sigmoid(finalInputs);   // Final predictions
     
     // BACKPROPAGATION: Calculate errors working backwards

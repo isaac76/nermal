@@ -1,6 +1,6 @@
 # Nermal Neural Network Library
 
-Hello, this is my attempt to learn how neural networks work. I named mine Nermal after the Garfield character because it kind of sounds like "neural" and I like Garfield. This project started with the book "Make Your Own Neural Network" by Tariq Rashid. You can find his GitHub project [here](https://github.com/makeyourownneuralnetwork/makeyourownneuralnetwork).
+Hello, this is my attempt to learn how neural networks work. I named mine Nermal after the Garfield character. This project started with the book "Make Your Own Neural Network" by Tariq Rashid. You can find his GitHub project [here](https://github.com/makeyourownneuralnetwork/makeyourownneuralnetwork).
 
 I went through his examples and developed a neural network in Python, then converted the project to C++ using Eigen to create a reusable library. While the examples and tests focus on MNIST digit recognition, **this is a general-purpose neural network library** that can be adapted for various machine learning tasks.
 
