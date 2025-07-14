@@ -333,7 +333,7 @@ The LGPL allows you to use this library in both open source and proprietary proj
 
 Contributions are welcome! Whether you're fixing bugs, adding features, improving documentation, or enhancing the test suite, your help is appreciated.
 
-**Educational Focus**: This project is primarily for educational purposes. While there are much more sophisticated and performant neural network libraries available (TensorFlow, PyTorch, etc.), the goal here is to understand how neural networks work by implementing and experimenting with the code ourselves. This makes it a perfect playground for learning and trying new ideas!
+**Educational Focus**: This project is primarily for educational purposes. While there are much more sophisticated and performant neural network libraries available (TensorFlow, PyTorch, etc.), the goal here is to understand how neural networks work by implementing and experimenting with the code ourselves. This makes it a perfect playground for learning and trying new ideas.
 
 ### How to Contribute
 
@@ -345,22 +345,8 @@ Contributions are welcome! Whether you're fixing bugs, adding features, improvin
 6. **Commit your changes** with clear, descriptive messages
 7. **Push to your fork** and **submit a pull request** to the `main` branch
 
-### What We're Looking For
+### TODO
 
-- Bug fixes and performance improvements
-- Additional activation functions (ReLU, tanh, etc.)
-- Support for different network architectures
-- Documentation improvements
-- More comprehensive test coverage
-- Examples for different use cases beyond MNIST
-
-### Pull Request Guidelines
-
-- Include a clear description of what your changes do
-- Reference any related issues
-- Make sure all tests pass
-- Keep changes focused and atomic (one feature/fix per PR)
-- Update documentation as needed
-
-Feel free to open an issue first if you want to discuss a major change or new feature!
+- thinking about adding a softmax function to be used with output nodes
+- thinking about updating my serialize methods and see if I can make them follow more of a standard like hdf5 or maybe give an option to save as a binary file like hdf4 or csv
 
