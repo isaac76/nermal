@@ -2,154 +2,175 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CMake: Configure",
+            "label": "Configure CMake",
             "type": "shell",
             "command": "cmake",
             "args": [
-                "-DCMAKE_BUILD_TYPE=Debug",
-                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-                "-B",
-                "build",
-                "."
+                ".."
             ],
-            "group": "build",
-            "detail": "Configure CMake build system",
-            "problemMatcher": [],
             "options": {
-                "cwd": "${workspaceFolder}"
-            }
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
+            "group": "build",
+            "detail": "Configure the CMake build system",
+            "problemMatcher": []
         },
         {
-            "label": "CMake: Build",
+            "label": "Build Library",
             "type": "shell",
             "command": "cmake",
             "args": [
                 "--build",
-                "build",
-                "--parallel",
-                "4"
+                ".",
+                "-j4"
             ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Build the project using CMake",
+            "dependsOn": "Configure CMake",
+            "detail": "Build the Nermal neural network library",
             "problemMatcher": [
                 "$gcc"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "dependsOn": "CMake: Configure"
+            ]
         },
         {
-            "label": "Build",
+            "label": "Clean Build",
             "type": "shell",
-            "command": "make",
+            "command": "rm",
             "args": [
-                "-j4"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/build"
-            },
-            "group": "build",
-            "detail": "Build using make directly",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "dependsOn": "CMake: Configure"
-        },
-        {
-            "label": "CMake: Clean",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build",
+                "-rf",
                 "build",
-                "--target",
-                "clean"
+                "&&",
+                "mkdir",
+                "-p",
+                "build"
             ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp"
+            },
             "group": "build",
-            "detail": "Clean build artifacts using CMake",
-            "problemMatcher": [],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
+            "detail": "Clean the build directory"
         },
         {
-            "label": "Run",
-            "type": "shell",
-            "command": "${workspaceFolder}/build/src/Nermal",
-            "group": "test",
-            "detail": "Run the Nermal application",
-            "dependsOn": "CMake: Build",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Run Unit Tests",
+            "label": "Run All Tests",
             "type": "shell",
             "command": "ctest",
             "args": [
-                "--test-dir",
-                "build",
+                "--output-on-failure",
                 "--verbose"
             ],
-            "group": "test",
-            "detail": "Run all unit and functional tests",
-            "dependsOn": "CMake: Build",
             "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Run MNIST Test",
-            "type": "shell",
-            "command": "${workspaceFolder}/build/tests/functional/mnist_test",
-            "group": "test",
-            "detail": "Run the MNIST neural network functional test",
-            "dependsOn": "CMake: Build",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Run Quick MNIST Test",
-            "type": "shell",
-            "command": "${workspaceFolder}/build/tests/functional/mnist_quick_test",
-            "group": "test",
-            "detail": "Run the quick MNIST neural network test",
-            "dependsOn": "CMake: Build",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Run Nermal GUI",
-            "type": "shell",
-            "command": "${workspaceFolder}/build/src/Nermal",
-            "group": "test",
-            "detail": "Run the Nermal GUI application",
-            "dependsOn": "CMake: Build",
-            "options": {
-                "cwd": "${workspaceFolder}",
-                "env": {
-                    "DISPLAY": ":1",
-                    "QT_QPA_PLATFORM": "xcb",
-                    "XDG_CURRENT_DESKTOP": "KDE",
-                    "XDG_SESSION_TYPE": "wayland",
-                    "WAYLAND_DISPLAY": "wayland-0",
-                    "XDG_RUNTIME_DIR": "/run/user/1000"
-                }
+                "cwd": "${workspaceFolder}/cpp/build"
             },
-            "isBackground": false,
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new"
-            }
+            "group": "test",
+            "dependsOn": "Build Library",
+            "detail": "Run all tests (unit and functional)",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Unit Tests Only",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "--output-on-failure",
+                "--verbose",
+                "-R",
+                "test_neuralnetwork"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
+            "group": "test",
+            "dependsOn": "Build Library",
+            "detail": "Run only the unit tests via CTest",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Quick Test Only",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "--output-on-failure",
+                "--verbose",
+                "-R",
+                "mnist_quick_test"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
+            "group": "test",
+            "dependsOn": "Build Library",
+            "detail": "Run only the quick MNIST functional test via CTest",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run MNIST Full Test",
+            "type": "shell",
+            "command": "./cpp/build/test/functional/mnist_test",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "dependsOn": "Build Library",
+            "detail": "Run the full MNIST functional test",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Full Test Only",
+            "type": "shell",
+            "command": "ctest",
+            "args": [
+                "--output-on-failure",
+                "--verbose",
+                "-R",
+                "mnist_functional_test"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
+            "group": "test",
+            "dependsOn": "Build Library",
+            "detail": "Run only the full MNIST functional test via CTest",
+            "problemMatcher": []
+        },
+        {
+            "label": "Install Library",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--install",
+                ".",
+                "--prefix",
+                "${input:installPrefix}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/cpp/build"
+            },
+            "group": "build",
+            "dependsOn": "Build Library",
+            "detail": "Install the library to a specified location"
+        },
+        {
+            "label": "Generate Documentation",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "Documentation generation not configured yet"
+            ],
+            "group": "build",
+            "detail": "Generate project documentation (placeholder)"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "installPrefix",
+            "description": "Installation prefix",
+            "default": "/usr/local",
+            "type": "promptString"
         }
     ]
 }

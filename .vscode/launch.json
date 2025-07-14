@@ -2,112 +2,33 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Nermal",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/src/Nermal",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [
-                {
-                    "name": "DISPLAY",
-                    "value": ":1"
-                },
-                {
-                    "name": "QT_QPA_PLATFORM",
-                    "value": "xcb"
-                },
-                {
-                    "name": "XDG_CURRENT_DESKTOP",
-                    "value": "KDE"
-                },
-                {
-                    "name": "XDG_SESSION_TYPE",
-                    "value": "wayland"
-                },
-                {
-                    "name": "WAYLAND_DISPLAY",
-                    "value": "wayland-0"
-                },
-                {
-                    "name": "XDG_RUNTIME_DIR",
-                    "value": "/run/user/1000"
-                }
-            ],
-            "externalConsole": false,
-            "preLaunchTask": "CMake: Build"
-        },
-        {
-            "name": "Debug Nermal",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/src/Nermal",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [
-                {
-                    "name": "DISPLAY",
-                    "value": ":1"
-                },
-                {
-                    "name": "QT_QPA_PLATFORM",
-                    "value": "xcb"
-                },
-                {
-                    "name": "XDG_CURRENT_DESKTOP",
-                    "value": "KDE"
-                },
-                {
-                    "name": "XDG_SESSION_TYPE",
-                    "value": "wayland"
-                },
-                {
-                    "name": "WAYLAND_DISPLAY",
-                    "value": "wayland-0"
-                },
-                {
-                    "name": "XDG_RUNTIME_DIR",
-                    "value": "/run/user/1000"
-                }
-            ],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "CMake: Build"
-        },
-        {
-            "name": "Debug MNIST Test",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/tests/functional/mnist_test",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "CMake: Build"
-        },
-        {
             "name": "Debug Unit Tests",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/tests/unit/test_neuralnetwork",
+            "program": "${workspaceFolder}/cpp/build/test/unit/test_neuralnetwork",
+            "args": [
+                "--gtest_color=yes"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/cpp/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build Library",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "Debug MNIST Quick Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/cpp/build/test/functional/mnist_quick_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -121,7 +42,29 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "CMake: Build"
+            "preLaunchTask": "Build Library",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "Debug MNIST Full Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/cpp/build/test/functional/mnist_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build Library",
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }

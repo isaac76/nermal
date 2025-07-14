@@ -1,17 +1,57 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
+# C++ Library Build Artifacts & IDE Files
+# ==========================================
 
-*~
-*.autosave
+# Build directories
+build/
+build-*/
+*-build-*/
+cpp/build/
+out/
+dist/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+DartConfiguration.tcl
+
+# Generated library files
 *.a
-*.core
-*.moc
-*.o
-*.obj
-*.orig
-*.rej
 *.so
 *.so.*
+*.dll
+*.dylib
+*.lib
+
+# Object files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.ilk
+
+# Temporary files
+*~
+*.autosave
+*.core
+*.moc
+*.orig
+*.rej
 *_pch.h.cpp
 *_resource.rc
 *.qm
@@ -25,7 +65,6 @@ tags
 *.debug
 Makefile*
 *.prl
-*.app
 moc_*.cpp
 ui_*.h
 qrc_*.cpp
@@ -35,21 +74,14 @@ Thumbs.db
 /.qmake.cache
 /.qmake.stash
 
-# qtcreator generated files
+# IDE specific files
+# ------------------
+# Qt Creator
 *.pro.user*
 CMakeLists.txt.user*
 
-# xemacs temporary files
-*.flc
-
-# Vim temporary files
-.*.swp
-
-# Visual Studio generated files
+# Visual Studio
 *.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
 *.sln
 *.suo
 *.vcproj
@@ -60,28 +92,95 @@ CMakeLists.txt.user*
 *.vcxproj
 *vcxproj.*
 
-# MinGW generated files
+# MinGW
 *.Debug
 *.Release
 
-# Python byte code
-*.pyc
+# Editor temporary files
+# ----------------------
+# Vim
+.*.swp
+*.swp
+*.swo
 
-# Binaries
-# --------
-*.dll
-*.exe
+# Emacs
+*.flc
+*~
 
-# MNIST Dataset Files
-# -------------------
+# VS Code (keep .vscode/ folder but ignore some files)
+.vscode/settings.json.bak
+.vscode/launch.json.bak
+.vscode/tasks.json.bak
+
+# Dataset and large files
+# ------------------------
 *.csv
 mnist_train.csv
 mnist_test.csv
 training/*.csv
+*.zip
+*.tar.gz
+*.7z
 
-# Build directories
+# Python artifacts (for the python/ directory)
+# ---------------------------------------------
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Package manager files
+# ----------------------
+node_modules/
+.npm
+.yarn/
+package-lock.json
+yarn.lock
+
+# OS specific files
 # -----------------
-build/
-build-*/
-*-build-*/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+# ------------------
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation generated files
+# -----------------------------
+docs/html/
+docs/latex/
+doxygen_warnings.txt
+
+# Test artifacts
+# --------------
+test_results/
+coverage/
+*.gcda
+*.gcno
+*.gcov
+
+# Backup files
+# ------------
+*.bak
+*.backup
+*.tmp
+*.temp
 
