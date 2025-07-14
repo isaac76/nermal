@@ -6,6 +6,8 @@
 #include <QLabel>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QFileDialog>
+#include <QMessageBox>
 #include "neuralnetwork.h"
 #include "drawingwidget.h"
 
@@ -26,6 +28,8 @@ private slots:
     void on_query_clicked();
     void on_clearDrawingButton_clicked();  // Clear the drawing area
     void onDrawingCompleted();  // Handle when user finishes drawing
+    void on_saveTraining_clicked();  // Save neural network
+    void on_loadTraining_clicked();  // Load neural network
 
 private:
     Ui::MainWindow *ui;
