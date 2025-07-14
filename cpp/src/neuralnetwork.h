@@ -23,6 +23,9 @@ private:
     static double sigmoid(double x);
     static Eigen::MatrixXd sigmoid(const Eigen::MatrixXd& matrix);
 
+    // TODO: implement a simple softmax function
+    // static Eigen::MatrixXd softmax(const Eigen::MatrixXd& matrix);
+
 public:
     NeuralNetwork(int inputNodes, int hiddenNodes, int outputNodes, double learningRate);
     
