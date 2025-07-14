@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <memory>
+#include <cstdint>
 
 class NeuralNetwork
 {
@@ -30,6 +31,12 @@ public:
     
     // Query the network (forward pass)
     std::vector<double> query(const std::vector<double>& inputsList);
+
+    // Serialize network data to binary format
+    std::vector<uint8_t> serializeToBytes() const;
+
+    // Deserialize network data from binary format
+    bool deserializeFromBytes(const std::vector<uint8_t>& data);
     
     // Print network information
     void printNetworkInfo() const;

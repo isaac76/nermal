@@ -19,6 +19,7 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include <QTime>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -578,5 +579,144 @@ void MainWindow::on_clearDrawingButton_clicked()
         drawingWidget->clearDrawing();
         statusLabel->setText("Drawing cleared. Draw a digit to test the network.");
         ui->predictionEdit->clear();
+    }
+}
+
+void MainWindow::on_saveTraining_clicked()
+{
+    if (!neuralNetwork) {
+        QMessageBox::warning(this, "Error", "No neural network to save. Please create and train a network first.");
+        return;
+    }
+
+    // Open file dialog to choose save location
+    QString filename = QFileDialog::getSaveFileName(
+        this,
+        "Save Neural Network Training Data",
+        QDir::homePath() + "/neural_network.nnd",
+        "Neural Network Data (*.nnd);;All Files (*)"
+    );
+
+    if (filename.isEmpty()) {
+        return; // User cancelled
+    }
+
+    // Ensure .nnd extension
+    if (!filename.endsWith(".nnd", Qt::CaseInsensitive)) {
+        filename += ".nnd";
+    }
+
+    // Get serialized data from neural network
+    std::vector<uint8_t> networkData = neuralNetwork->serializeToBytes();
+    if (networkData.empty()) {
+        QMessageBox::critical(this, "Error", "Failed to serialize neural network data.");
+        statusLabel->setText("Failed to serialize neural network data.");
+        return;
+    }
+
+    // Write binary data using QFile
+    QFile file(filename);
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::critical(this, "Error", 
+            QString("Failed to open file for writing:\n%1\n\nError: %2")
+            .arg(filename).arg(file.errorString()));
+        statusLabel->setText("Failed to open file for writing.");
+        return;
+    }
+
+    // Write the binary data
+    qint64 bytesWritten = file.write(reinterpret_cast<const char*>(networkData.data()), 
+                                   static_cast<qint64>(networkData.size()));
+    file.close();
+
+    if (bytesWritten != static_cast<qint64>(networkData.size())) {
+        QMessageBox::critical(this, "Error", 
+            QString("Failed to write complete data to file:\n%1\n\nExpected: %2 bytes, Written: %3 bytes")
+            .arg(filename).arg(networkData.size()).arg(bytesWritten));
+        statusLabel->setText("Failed to write complete data to file.");
+        return;
+    }
+
+    QMessageBox::information(this, "Success", 
+        QString("Neural network saved successfully to:\n%1\n\nFile size: %2 bytes")
+        .arg(filename).arg(networkData.size()));
+    statusLabel->setText(QString("Neural network saved successfully (%1 bytes).").arg(networkData.size()));
+}
+
+void MainWindow::on_loadTraining_clicked()
+{
+    if (!neuralNetwork) {
+        QMessageBox::warning(this, "Error", "No neural network initialized. Please restart the application.");
+        return;
+    }
+
+    // Open file dialog to choose file to load
+    QString filename = QFileDialog::getOpenFileName(
+        this,
+        "Load Neural Network Training Data",
+        QDir::homePath(),
+        "Neural Network Data (*.nnd);;All Files (*)"
+    );
+
+    if (filename.isEmpty()) {
+        return; // User cancelled
+    }
+
+    // Confirm the action since this will overwrite current weights
+    QMessageBox::StandardButton reply = QMessageBox::question(
+        this, 
+        "Confirm Load", 
+        "Loading will replace the current neural network weights and learning rate.\n\n"
+        "Are you sure you want to continue?",
+        QMessageBox::Yes | QMessageBox::No
+    );
+
+    if (reply != QMessageBox::Yes) {
+        return;
+    }
+
+    // Read binary data using QFile
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(this, "Error", 
+            QString("Failed to open file for reading:\n%1\n\nError: %2")
+            .arg(filename).arg(file.errorString()));
+        statusLabel->setText("Failed to open file for reading.");
+        return;
+    }
+
+    // Read all binary data
+    QByteArray fileData = file.readAll();
+    file.close();
+
+    if (fileData.isEmpty()) {
+        QMessageBox::critical(this, "Error", 
+            QString("File is empty or could not be read:\n%1").arg(filename));
+        statusLabel->setText("File is empty or could not be read.");
+        return;
+    }
+
+    // Convert QByteArray to std::vector<uint8_t>
+    std::vector<uint8_t> networkData;
+    networkData.reserve(static_cast<size_t>(fileData.size()));
+    for (int i = 0; i < fileData.size(); ++i) {
+        networkData.push_back(static_cast<uint8_t>(fileData.at(i)));
+    }
+
+    // Deserialize the neural network data
+    if (neuralNetwork->deserializeFromBytes(networkData)) {
+        QMessageBox::information(this, "Success", 
+            QString("Neural network loaded successfully from:\n%1\n\nFile size: %2 bytes")
+            .arg(filename).arg(fileData.size()));
+        statusLabel->setText(QString("Neural network loaded successfully (%1 bytes). You can continue training or testing.").arg(fileData.size()));
+        
+        // Print updated network info to console
+        neuralNetwork->printNetworkInfo();
+    } else {
+        QMessageBox::critical(this, "Error", 
+            QString("Failed to load neural network from:\n%1\n\n"
+                   "Please check that the file contains valid training data "
+                   "compatible with this network configuration (784x100x10).").arg(filename));
+        statusLabel->setText("Failed to load neural network.");
     }
 }
