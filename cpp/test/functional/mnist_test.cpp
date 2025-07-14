@@ -158,7 +158,7 @@ int main() {
     
     // Load training data
     std::cout << "\n=== Loading Training Data ===" << std::endl;
-    auto trainingData = loadTrainingData("training/mnist_train.csv", trainingSamples);
+    auto trainingData = loadTrainingData("csv/mnist_train.csv", trainingSamples);
     
     if (trainingData.empty()) {
         std::cerr << "No training data loaded. Exiting." << std::endl;
@@ -191,7 +191,7 @@ int main() {
     
     // Load test data
     std::cout << "\n=== Loading Test Data ===" << std::endl;
-    auto testData = loadTestData("mnist_test.csv", testSamples);
+    auto testData = loadTestData("csv/mnist_test.csv", testSamples);
     
     if (testData.empty()) {
         std::cerr << "No test data loaded. Exiting." << std::endl;

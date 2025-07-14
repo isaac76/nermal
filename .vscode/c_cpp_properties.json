@@ -3,19 +3,21 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "/usr/include/qt6",
-                "/usr/include/qt6/QtCore",
-                "/usr/include/qt6/QtTest",
-                "/usr/include/qt6/QtWidgets",
-                "/usr/include/qt6/QtGui"
+                "${workspaceFolder}/cpp/src",
+                "${workspaceFolder}/cpp/test/unit",
+                "${workspaceFolder}/cpp/test/functional",
+                "/usr/include/eigen3",
+                "/usr/include/gtest",
+                "/usr/include",
+                "/usr/local/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/g++-11",
-            "cStandard": "c11",
-            "cppStandard": "gnu++17",
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
             "intelliSenseMode": "linux-gcc-x64",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/cpp/build/compile_commands.json"
         }
     ],
     "version": 4

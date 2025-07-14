@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=@CMAKE_INSTALL_FULL_LIBDIR@
+includedir=@CMAKE_INSTALL_FULL_INCLUDEDIR@
+
+Name: nermal
+Description: Nermal Neural Network Library
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -lnermal
+Cflags: -I${includedir}/nermal
+Requires: eigen3
