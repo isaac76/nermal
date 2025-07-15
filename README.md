@@ -348,5 +348,5 @@ Contributions are welcome! Whether you're fixing bugs, adding features, improvin
 ### TODO
 
 - thinking about adding a softmax function to be used with output nodes
-- thinking about updating my serialize methods and see if I can make them follow more of a standard like hdf5 or maybe give an option to save as a binary file like hdf4 or csv
+- thinking about updating my serialize methods and see if I can make them follow more of a standard like hdf5 or maybe give an option to save as a binary file like hdf5 or csv
 
